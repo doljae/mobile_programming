@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.seokjae.lab1_2.MainActivity"
+    android:orientation="vertical"> //Base layout is LinearLayout
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1,5"
+        > //Make TableLayout, row is 1, use stretchColumn to make EditText long
+        <TableRow> //start row1
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="name"
+                /> //column1 is TextView
+            <EditText
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" /> //column2 is EditText
+        </TableRow> //end row1
+    </TableLayout> //end TableLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"> //use RelativeLayout
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button1"
+            android:text="CLEAR"
+            android:onClick="clearClicked"/> //button 1 is CLEAR button to delete text on EditText and TextView, call clearClicked function on java file.
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PRINT"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/button1"
+            android:layout_toRightOf="@+id/button1"
+            android:onClick="printClicked"/> //button2 is PRINT button to print text on TextView, use button1's location, call printClicked function on java file.
+    </RelativeLayout> //end RelativeLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view2"
+        android:text="contents"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /> //view2 shows text which is printed.
+</LinearLayout>
